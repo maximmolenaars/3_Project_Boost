@@ -23,6 +23,21 @@ public class Rocket : MonoBehaviour
         Rotation();
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Friendly":
+                //do nothingp
+                print("OK");
+                break;
+            default:
+                print("Dead");
+                break;
+                
+        }
+    }
+
     private void Thrust()
     {
         if (Input.GetKey(KeyCode.Space))
@@ -49,13 +64,13 @@ public class Rocket : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            print("Rotating left");
+            //print("Rotating left");
             transform.Rotate(Vector3.forward * rotationThisFrame); //forward is z axis
         }
 
         else if (Input.GetKey(KeyCode.D))
         {
-            print("Rotating right");
+            //print("Rotating right");
             transform.Rotate(-Vector3.forward * rotationThisFrame);
         }
 
